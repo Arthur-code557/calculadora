@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class FibonacciApp {
+
+    public static void imprimirFibonacci(int n) {
+        int a = 0, b = 1;
+        System.out.print("Sequência de Fibonacci: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            int temp = a + b;
+            a = b;
+            b = temp;
+            }
+            System.out.println();
+        }
+
+        public static int[] gerarFibonacciArray(int n) {
+            int[] fib = new int[n];
+            if (n > 0) fib[0] = 0;
+            if (n > 1) fib[1] = 1;
+
+            for (int i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+
+            return fib;
+        }
+
+        public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+
+            System.out.print("Digite a quantidade de termos da sequência de Fibonacci: ");
+            int n = input.nextInt();
+
+            imprimirFibonacci(n);
+
+            int[] fibonacciArray = gerarFibonacciArray(n);
+            System.out.print("Fibonacci em array: ");
+            for (int num : fibonacciArray) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+
+            input.close();
+        }
+}
